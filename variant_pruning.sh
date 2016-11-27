@@ -21,3 +21,6 @@ $PLINK --bfile temp1 --geno 0.1 --maf 0.05 --threads $NTHREADS --make-bed --out 
 #--indep-pairwise [window size]<kb> [step size (variant ct)] [r^2 threshold] produces
 #a pruned subset of markers that are in approximate linkage equilibrium
 $PLINK --bfile temp2 --indep-pairwise 50 5 0.2 --threads $NTHREADS --out temp2
+
+#Extract pruned variants
+$PLINK --bfile temp2 --extract temp2.prune.in --threads $NTHREADS --make-bed --out pruned

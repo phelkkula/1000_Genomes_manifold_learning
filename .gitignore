@@ -1,0 +1,9 @@
+# Data #
+########
+*.vcf
+*.gz
+*.bed
+*.bim
+*.fam
+*.prune.in
+*.prune.out

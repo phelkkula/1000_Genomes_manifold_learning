@@ -17,3 +17,7 @@ $PLINK --bfile input --exclude range $HIGHLD --make-bed --threads $NTHREADS --ou
 
 #Filter variants with call rate >= 0.9 and MAF >= 5%
 $PLINK --bfile temp1 --geno 0.1 --maf 0.05 --threads $NTHREADS --make-bed --out temp2
+
+#--indep-pairwise [window size]<kb> [step size (variant ct)] [r^2 threshold] produces
+#a pruned subset of markers that are in approximate linkage equilibrium
+$PLINK --bfile temp2 --indep-pairwise 50 5 0.2 --threads $NTHREADS --out temp2

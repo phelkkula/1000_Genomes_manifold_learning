@@ -14,3 +14,6 @@ $PLINK --bfile input --exclude non_rsids.txt --threads $NTHREADS --make-bed --ou
 
 #Exclude high LD regions
 $PLINK --bfile input --exclude range $HIGHLD --make-bed --threads $NTHREADS --out temp1
+
+#Filter variants with call rate >= 0.9 and MAF >= 5%
+$PLINK --bfile temp1 --geno 0.1 --maf 0.05 --threads $NTHREADS --make-bed --out temp2

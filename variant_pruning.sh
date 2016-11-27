@@ -7,3 +7,7 @@ NTHREADS=4
 
 #Convert VCF into bfiles
 $PLINK --vcf $VCF --threads $NTHREADS --make-bed --out input
+
+#Filter rsids; remove EBI structural variants (esv)
+awk '{print $2}' input.bim | grep -v 'rs' > non_rsids.txt
+$PLINK --bfile input --exclude non_rsids.txt --threads $NTHREADS --make-bed --out input

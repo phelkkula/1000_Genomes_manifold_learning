@@ -81,3 +81,10 @@ from keras.layers import Input, Dense, Lambda
 from keras.models import Model
 from keras import backend as K
 from keras import objectives
+
+# Batch size has to be a product of the prime factors of the sample size
+batch_size = 313
+original_dim = X.shape[1]
+latent_dim = 2
+intermediate_dim = 3378
+nb_epoch = 100

@@ -60,3 +60,8 @@ plot_manifold(X_pc, superpop_list, superpopset_list, 'Principal components')
 mds = MDS(n_components=2)
 X_mds = mds.fit_transform(X)
 plot_manifold(X_mds, superpop_list, superpopset_list, 'Multidimensional scaling')
+
+# t-SNE
+tsne = TSNE(n_components=2)
+X_tsne = tsne.fit_transform(X)
+plot_manifold(X_tsne, superpop_list, superpopset_list, 't-distributed Stochastic Neighbor Embedding')

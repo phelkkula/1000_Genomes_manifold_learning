@@ -29,3 +29,7 @@ dosage_df = df.iloc[:,8:-1]
 dosage_df = dosage_df.dropna(axis=1)
 # Input allelic dosages
 X = dosage_df.as_matrix()
+
+# Get sample indices for each super population
+superpop_list = [np.where(list(df['super_pop'] == superpopset_list[i]))
+                for i in range(len(superpopset_list))]

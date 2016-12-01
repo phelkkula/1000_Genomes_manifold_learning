@@ -116,3 +116,17 @@ def vae_loss(x, x_decoded_mean):
 
 vae = Model(x, x_decoded_mean)
 vae.compile(optimizer='rmsprop', loss=vae_loss)
+
+
+x_train = X
+x_test = x_train
+y_test = df.super_pop
+
+vae.fit(x_train, x_train,
+        shuffle=True,
+        nb_epoch=nb_epoch,
+        batch_size=batch_size,
+        validation_data=(x_test, x_test))
+
+# build a model to project inputs on the latent space
+encoder = Model(x, z_mean)

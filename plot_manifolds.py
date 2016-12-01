@@ -133,3 +133,6 @@ encoder = Model(x, z_mean)
 
 # Transform input allelic dosages to the learned latent space
 x_test_encoded = encoder.predict(x_test, batch_size=batch_size)
+
+# Plot the two-dimensional VAE manifold
+plot_manifold(x_test_encoded, superpop_list, superpopset_list, 'Variational Autoencoder')

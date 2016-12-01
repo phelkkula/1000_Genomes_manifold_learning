@@ -130,3 +130,6 @@ vae.fit(x_train, x_train,
 
 # build a model to project inputs on the latent space
 encoder = Model(x, z_mean)
+
+# Transform input allelic dosages to the learned latent space
+x_test_encoded = encoder.predict(x_test, batch_size=batch_size)

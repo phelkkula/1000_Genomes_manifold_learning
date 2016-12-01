@@ -55,3 +55,8 @@ superpop_list = [np.where(list(df['super_pop'] == superpopset_list[i]))
 pca = PCA(n_components=2)
 X_pc = pca.fit(X).transform(X)
 plot_manifold(X_pc, superpop_list, superpopset_list, 'Principal components')
+
+# MDS manifold
+mds = MDS(n_components=2)
+X_mds = mds.fit_transform(X)
+plot_manifold(X_mds, superpop_list, superpopset_list, 'Multidimensional scaling')

@@ -18,3 +18,6 @@ superpopset_list = list(set(pop_df['super_pop']))
 
 # Merge population assignment info with allelic dosages
 df = pd.merge(pop_df,dosage_df, on='FID')
+
+# Extract sample ID's
+sample_list = list(dosage_df.FID)

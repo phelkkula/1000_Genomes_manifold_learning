@@ -21,3 +21,6 @@ df = pd.merge(pop_df,dosage_df, on='FID')
 
 # Extract sample ID's
 sample_list = list(dosage_df.FID)
+
+# Extract only allelic dosages
+dosage_df = df.iloc[:,8:-1]

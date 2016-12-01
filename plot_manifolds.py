@@ -24,3 +24,8 @@ sample_list = list(dosage_df.FID)
 
 # Extract only allelic dosages
 dosage_df = df.iloc[:,8:-1]
+
+# Drop variants with a missing genotype
+dosage_df = dosage_df.dropna(axis=1)
+# Input allelic dosages
+X = dosage_df.as_matrix()

@@ -7,11 +7,6 @@ from sklearn.manifold import MDS, TSNE, SpectralEmbedding
 import matplotlib.cm as cm 
 import matplotlib.pyplot as plt
 
-from keras.layers import Input, Dense, Lambda
-from keras.models import Model
-from keras import backend as K
-from keras import objectives
-
 
 # Read in allelic dosages
 dosage_df = pd.read_csv('pruned.raw', sep=' ')
@@ -75,3 +70,14 @@ plot_manifold(X_tsne, superpop_list, superpopset_list, 't-distributed Stochastic
 tsne = TSNE(n_components=2)
 X_tsne = tsne.fit_transform(X)
 plot_manifold(X_tsne, superpop_list, superpopset_list, 'Spectral Embedding')
+
+'''
+Kingma DK, Welling M "Auto-Encoding Variational Bayes" https://arxiv.org/abs/1312.6114
+Variational Autoencoder code adapted from:
+https://github.com/fchollet/keras/blob/master/examples/variational_autoencoder.py
+'''
+
+from keras.layers import Input, Dense, Lambda
+from keras.models import Model
+from keras import backend as K
+from keras import objectives

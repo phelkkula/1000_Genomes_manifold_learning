@@ -7,6 +7,23 @@ from sklearn.manifold import MDS, TSNE, SpectralEmbedding
 import matplotlib.cm as cm 
 import matplotlib.pyplot as plt
 
+
+# Plots 2D manifold of the transformed input data
+def plot_manifold(X_c, superpop_list, superpopset_list, title):
+	# Generate separate colors for each superpopulation
+	colors = iter(cm.rainbow(np.linspace(0, 1, len(superpopset_list))))
+    # Plot samples belonging to each superpopulation with separate colors
+	for i in range(len(superpop_list)):
+		plt.scatter(X_c[superpop_list[i][0],0], X_c[superpop_list[i][0],1],
+			color=next(colors),label=superpopset_list[i])
+
+	plt.xlabel('C1')
+	plt.ylabel('C2')
+	plt.legend(loc='lower right')
+	plt.title(title)
+	plt.show()
+
+
 # Read in allelic dosages
 dosage_df = pd.read_csv('pruned.raw', sep=' ')
 

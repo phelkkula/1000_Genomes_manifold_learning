@@ -50,3 +50,8 @@ X = dosage_df.as_matrix()
 # Get sample indices for each super population
 superpop_list = [np.where(list(df['super_pop'] == superpopset_list[i]))
                 for i in range(len(superpopset_list))]
+
+# Principal components
+pca = PCA(n_components=2)
+X_pc = pca.fit(X).transform(X)
+plot_manifold(X_pc, superpop_list, superpopset_list, 'Principal components')

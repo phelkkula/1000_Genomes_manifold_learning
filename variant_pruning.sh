@@ -24,3 +24,6 @@ $PLINK --bfile temp2 --indep-pairwise 50 5 0.2 --threads $NTHREADS --out temp2
 
 #Extract pruned variants
 $PLINK --bfile temp2 --extract temp2.prune.in --threads $NTHREADS --make-bed --out pruned
+
+#Get allelic dosages for samples
+$PLINK --bfile pruned --recodde A --threads $NTHREADS --out pruned

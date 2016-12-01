@@ -7,6 +7,11 @@ from sklearn.manifold import MDS, TSNE, SpectralEmbedding
 import matplotlib.cm as cm 
 import matplotlib.pyplot as plt
 
+from keras.layers import Input, Dense, Lambda
+from keras.models import Model
+from keras import backend as K
+from keras import objectives
+
 
 # Plots 2D manifold of the transformed input data
 def plot_manifold(X_c, superpop_list, superpopset_list, title):

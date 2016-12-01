@@ -8,3 +8,5 @@
 *.fam
 *.prune.in
 *.prune.out
+*.panel
+*.raw
